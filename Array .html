@@ -22,14 +22,13 @@
     <scr
         const mainHeading = document.getElementById('main-heading');
         
-        console.log("--- ID Selection Results ---");
+        console.log("ID Selection Results ");
         console.log("Text Content:", mainHeading.textContent);
 
 
         const actionLink = document.querySelector('#cta-link');
         
-        console.log("\n--- querySelector Results ---");
-        console.log("Link Destination (href):", actionLink.getAttribute('href'));
+        console.log("\n querySelector Results ");
         console.log("Link Target Window:", actionLink.target);
 
 
@@ -37,14 +36,14 @@
   
         const listItems = document.querySelectorAll('.feature-list .item');
         
-        console.log("\n--- querySelectorAll Results ---");
+        console.log("\nquerySelectorAll Results ");
         console.log(`Found ${listItems.length} matching list elements.`);
 s
         listItems.forEach((element, index) => {
             const textValue = element.textContent;
             const customAttribute = element.getAttribute('data-status');
             
-            console.log(`Item #${index + 1}: "${textValue}" | Status: ${customAttribute}`);
+         
         });
     </script>
 </body>
