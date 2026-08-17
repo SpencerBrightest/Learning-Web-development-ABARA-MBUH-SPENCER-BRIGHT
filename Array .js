@@ -1,22 +1,51 @@
-const fellows =[];
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Exploration</title>
+</head>
+<body>
 
-fellows.push =({name="Spencer", role:"Machine Learning Engineer", points:"70"});
-fellows.push({ name: "Divine", role: "Backend Fellow", points: 95 });
-fellows.push({ name: "Njoh", role: "Fullstack Fellow", points: 150 });
-fellows.push({ name: "Bih", role: "Design Fellow", points: 80 });
+    <!-- Unique Element -->
+    <h1 id="main-heading">Welcome to the DOM Tutorial</h1>
 
-for (let i=0; i<fellows.length<i++){
-const f = fellows[i];
-  console.log(`${i + 1}. ${f.name}  ${f.role} (${f.points} pts)`);
-}
-console.log("---")
+    <!-- Action Element with Attribute -->
+    <a id="cta-link" href="https://flutter.dev" target="_blank">Visit Flutter Portal</a>
 
-const summaries= fellow.map(f=>`${f.name}: ${f.points} pts`);
-console.log(summaries);
-)
+    <!-- Grouped Elements -->
+    <ul class="feature-list">
+        <li class="item" data-status="active">DOM</li>
+        <li class="item" data-status="pending">Stateless</li>
+        <li class="item" data-status="active">Asynchronous Pipeline</li>
+    </ul>
 
-const topFellows = fellows.filter(f => f.points > 100);
-console.log("Top fellows:", topFellows);
+    <scr
+        const mainHeading = document.getElementById('main-heading');
+        
+        console.log("--- ID Selection Results ---");
+        console.log("Text Content:", mainHeading.textContent);
 
-onst topNames = fellows.filter(f => f.points > 100).map(f => f.name);
-console.log("Top names:", topNames);
+
+        const actionLink = document.querySelector('#cta-link');
+        
+        console.log("\n--- querySelector Results ---");
+        console.log("Link Destination (href):", actionLink.getAttribute('href'));
+        console.log("Link Target Window:", actionLink.target);
+
+
+      
+  
+        const listItems = document.querySelectorAll('.feature-list .item');
+        
+        console.log("\n--- querySelectorAll Results ---");
+        console.log(`Found ${listItems.length} matching list elements.`);
+s
+        listItems.forEach((element, index) => {
+            const textValue = element.textContent;
+            const customAttribute = element.getAttribute('data-status');
+            
+            console.log(`Item #${index + 1}: "${textValue}" | Status: ${customAttribute}`);
+        });
+    </script>
+</body>
+</html>
