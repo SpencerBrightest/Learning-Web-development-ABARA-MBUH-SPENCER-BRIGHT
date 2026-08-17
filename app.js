@@ -1,69 +1,57 @@
-//Functoin for checking for duplicates 
-function findDuplicates(ids) {
-  const counts = ids.reduce((acc, id) => {
-    acc[id] = (acc[id] || 0) + 1;
-    return acc;
-  }, {});
-
-  return Object.keys(counts)
-    .filter((id) => counts[id] > 1)
-    .map((id) => (isNaN(id) ? id : Number(id))); 
+//Task 1: Program for filtering dupliactes numbers
+const numbers = [1, 2, 3, 2, 4, 1, 5, 3];
+let count = {};
+let duplicates = [];
+for (let number of numbers) {
+  count[number] = (count[number] || 0) + 1;
+}
+for (let number in count) {
+  if (count[number] > 1) {
+    duplicates.push(Number(number));
+  }
 }
 
-//displaying the output of the contents
-const ids = [102, 105, 102, 110, 105, 108, 102];
-console.log(findDuplicates(ids)); 
+console.log("Duplicates:", duplicates);
 
 
-//Filtering duplicates functoin
-function scoresAboveThreshold(fellows, threshold) {
-  const above = fellows.filter((f) => f.score > threshold);
+//Task 2:Program to calculate the score against a certain number X
 
-  return {
-    count: above.length,
-    names: above.map((f) => f.name),
-  };
+const scores = [45, 78, 90, 62, 30, 85, 55];
+let count = 0;
+for (let score of scores) {
+  if (score > 60) {
+    count++;
+  }
 }
 
-const fellows = [
-  { name: "Ama", score: 78 },
-  { name: "Bate", score: 92 },
-  { name: "Che", score: 65 },
-  { name: "Divine", score: 88 },
+console.log("Scores above 60:", count);
+
+//Task 3:    A program to filter products into categories
+
+const products = [
+  { name: "Apple", category: "Fruit" },
+  { name: "Carrot", category: "Vegetable" },
+  { name: "Banana", category: "Fruit" },
+  { name: "Potato", category: "Vegetable" }
 ];
-console.log(scoresAboveThreshold(fellows, 80)); /
-
-//Displaying the conetents which are been filtered by genres
-function groupByCategory(projects) {
-  return projects.reduce((acc, project) => {
-    if (!acc[project.category]) {
-      acc[project.category] = [];
-    }
-    acc[project.category].push(project.name);
-    return acc;
-  }, {});
+let grouped = {};
+for (let product of products) {
+  if (!grouped[product.category]) {
+    grouped[product.category] = [];
+  }
+  grouped[product.category].push(product.name);
 }
+console.log(grouped);
 
-const projects = [
-  { name: "Budget Tracker", category: "Finance" },
-  { name: "Attendance App", category: "Education" },
-  { name: "Expense Splitter", category: "Finance" },
-  { name: "Quiz Master", category: "Education" },
-  { name: "Farm Monitor", category: "Agriculture" },
-];
-console.log(groupByCategory(projects));
 
-  const combined = names.map((name, i) => ({
-    name,
-    score: scores[i],
-  }));
+//Task4: A program to find the highest score of numbers
 
-  return combined
-    .sort((a, b) => b.score - a.score)
-    .slice(0, 3)
-    .map((entry) => entry.name);
+const scores = [45, 78, 92, 65, 88, 55];
+let highest = scores[0];
+
+for (let score of scores) {
+  if (score > highest) {
+    highest = score;
+  }
 }
-
-const names = ["Ngwa", "Fon", "Achu", "Tabe", "Mbah"];
-const scores = [72, 95, 88, 91, 67];
-console.log(mergeAndRank(names, scores)); 
+console.log("Highest score:", highest);
